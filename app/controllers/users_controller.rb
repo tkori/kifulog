@@ -24,6 +24,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_path, notice: "ユーザー「#{@user.name}」を削除しました。"
   end
 
   private
