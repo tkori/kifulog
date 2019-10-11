@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     user.save!
-    redirect_to root_path
+    redirect_to root_path, notice: "ユーザー登録が完了しました！"
   end
 
   def show
