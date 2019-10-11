@@ -13,4 +13,4 @@
       %td= @user.description
 
 = link_to 'プロフィールを編集する', edit_user_path, class: 'btn btn-primary mr-3'
-= link_to 'アカウントを削除する', users_path, method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
+= link_to 'アカウントを削除する', @user, method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
