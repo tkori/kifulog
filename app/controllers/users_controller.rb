@@ -4,18 +4,22 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    user.save!
-    redirect_to root_path, notice: "ユーザー登録が完了しました！"
+    @user = User.new(user_params)
+    @user.save!
+    redirect_to @user, notice: "ユーザー登録が完了しました！"
   end
 
   def show
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+    @user.update!(user_params)
+    redirect_to @user, notice: "プロフィールが更新されました！" 
   end
 
   def destroy
@@ -24,6 +28,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :description)
   end
 end
