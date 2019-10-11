@@ -1,0 +1,16 @@
+%h1 プロフィール
+
+%table.table.table-hover
+  %tbody
+    %tr
+      %th ユーザー名
+      %td= @user.name
+    %tr
+      %th メールアドレス
+      %td= @user.email
+    %tr
+      %th 自己紹介
+      %td= @user.description
+
+= link_to 'プロフィールを編集する', edit_user_path, class: 'btn btn-primary mr-3'
+= link_to 'アカウントを削除する', @user, method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'

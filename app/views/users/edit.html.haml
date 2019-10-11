@@ -1,0 +1,13 @@
+%h1 プロフィール編集
+
+= form_with model: @user, local: true do |f|
+  .form-group
+    = f.label :name, 'ユーザー名'
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :email, 'メールアドレス'
+    = f.text_field :email, class: 'form-control'
+  .form-group
+    = f.label :description, '自己紹介'
+    = f.text_area :description, class: 'form-control', rows: 3  
+  = f.submit '更新する', class: 'btn btn-primary'
