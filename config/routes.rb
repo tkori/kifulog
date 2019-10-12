@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'kifus#index'
   resources :users, except: :index
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
