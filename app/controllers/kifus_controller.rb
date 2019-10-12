@@ -13,6 +13,16 @@ class KifusController < ApplicationController
     redirect_to root_path, notice: "棋譜が投稿されました！"
   end
 
+  def show
+    @kifu = Kifu.find(params[:id])
+  end
+
+  def destroy
+    kifu = Kifu.find(params[:id])
+    kifu.destroy
+    redirect_to root_path, notice: "棋譜を削除しました。"
+  end
+
   private
 
   def kifu_params
