@@ -19,6 +19,7 @@ class KifusController < ApplicationController
 
   def destroy
     kifu = Kifu.find(params[:id])
+    kifu.kifu.purge
     kifu.destroy
     redirect_to root_path, notice: "棋譜を削除しました。"
   end
