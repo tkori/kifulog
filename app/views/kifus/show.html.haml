@@ -1,1 +1,9 @@
+#board
+
 = link_to '棋譜を削除する', @kifu, method: :delete, data: { confirm: "棋譜を削除します。よろしいですか？" }, class: 'btn btn-danger'
+
+= @kifu.kifu.filename
+= rails_blob_path(@kifu.kifu)
+
+:javascript
+  KifuForJS.load("#{url_for(@kifu.kifu)}", "board");
