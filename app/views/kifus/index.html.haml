@@ -1,0 +1,6 @@
+- @kifus.each do |kifu|
+  .card
+    .card-body
+      %h5.card-title タイトル
+      %p.card-text 説明
+      = link_to '棋譜を見る', kifu_path(kifu), class: 'btn btn-primary'
