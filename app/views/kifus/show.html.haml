@@ -9,10 +9,15 @@
   .form-group
     = f.label :comment, 'コメント'
     = f.text_area :comment, class: 'form-control-file'
+    = f.hidden_field :kifu_id, value: @kifu.id
   = f.submit 'コメントする', class: 'btn btn-primary'
 
-- @comments.each do |comment|
-  = comment
+.comments
+  - @comments.each do |comment|
+    %p.comment
+      = comment.comment
+      - if comment.user_id == current_user.id
+        = link_to 'コメントを削除する', kifu_comment_path(@kifu.id, comment.id), method: :delete, data: { confirm: "コメントを削除しますか？" }, class: 'btn btn-danger'
 
 :javascript
   KifuForJS.load("#{url_for(@kifu.kifu)}", "board");
