@@ -5,5 +5,14 @@
 = @kifu.kifu.filename
 = rails_blob_path(@kifu.kifu)
 
+= form_with model: [@kifu, @comment] do |f|
+  .form-group
+    = f.label :comment, 'コメント'
+    = f.text_area :comment, class: 'form-control-file'
+  = f.submit 'コメントする', class: 'btn btn-primary'
+
+- @comments.each do |comment|
+  = comment
+
 :javascript
   KifuForJS.load("#{url_for(@kifu.kifu)}", "board");
