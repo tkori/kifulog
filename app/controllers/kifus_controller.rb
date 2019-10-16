@@ -15,6 +15,8 @@ class KifusController < ApplicationController
 
   def show
     @kifu = Kifu.find(params[:id])
+    @comments = @kifu.comments.includes(:user)
+    @comment = Comment.new
   end
 
   def destroy
