@@ -1,4 +1,6 @@
 class KifusController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
+
   def index
     @kifus = Kifu.all
   end
