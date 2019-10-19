@@ -2,22 +2,23 @@
 
 = link_to '棋譜を削除する', @kifu, method: :delete, data: { confirm: "棋譜を削除します。よろしいですか？" }, class: 'btn btn-danger'
 
-= @kifu.kifu.filename
-= rails_blob_path(@kifu.kifu)
+-# = rails_blob_path(@kifu.kifu)
 
-= form_with model: [@kifu, @comment] do |f|
+= form_with model: [@kifu, @comment], class: 'mt-5 mb-4' do |f|
   .form-group
     = f.label :comment, 'コメント'
-    = f.text_area :comment, class: 'form-control-file'
+    = f.text_area :comment, class: 'form-control'
     = f.hidden_field :kifu_id, value: @kifu.id
-  = f.submit 'コメントする', class: 'btn btn-primary'
+  = f.submit 'コメントする', class: 'btn btn-sm btn-primary'
 
 .comments
   - @comments.each do |comment|
-    %p.comment
-      = comment.comment
-      - if comment.user_id == current_user.id
-        = link_to 'コメントを削除する', kifu_comment_path(@kifu.id, comment.id), method: :delete, data: { confirm: "コメントを削除しますか？" }, class: 'btn btn-danger'
+    .comment.d-flex.mb-4
+      %span.user-name.pt-1= link_to "#{comment.user.name}", user_path(comment.user)
+      %span.comment-text.pt-1.pl-3= comment.comment
+      %span.delete-btn.pl-3
+        - if comment.user_id == current_user.id
+          = link_to 'コメントを削除する', kifu_comment_path(@kifu.id, comment.id), method: :delete, data: { confirm: "コメントを削除しますか？" }, class: 'btn btn-sm btn-danger'
 
 :javascript
-  KifuForJS.load("#{url_for(@kifu.kifu)}", "board");
+  KifuForJS.load("#{@kifu.kifu}", "board");
