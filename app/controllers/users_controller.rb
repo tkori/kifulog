@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   def new
+    redirect_to root_path if user_signed_in?
     @user = User.new
   end
 
@@ -16,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    redirect_to @user if current_user != @user
   end
 
   def update
