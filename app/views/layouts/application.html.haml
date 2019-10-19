@@ -29,7 +29,7 @@
               = link_to 'プロフィール更新', '#', class: 'dropdown-item'
               = link_to '通知設定', '#', class: 'dropdown-item'
 
-    .container
+    .container.pt-4
       - if flash.notice.present?
         .alert.alert-success
           = flash.notice
