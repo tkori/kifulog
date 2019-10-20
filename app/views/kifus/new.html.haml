@@ -2,6 +2,21 @@
 
 = form_with model: @kifu, local: true do |f|
   .form-group
+    = f.label :sente, '先手'
+    = f.text_field :sente, class: 'form-control'
+  .form-group
+    = f.label :gote, '後手'
+    = f.text_field :gote, class: 'form-control'
+  .form-group
+    = f.label :place, '対局場所'
+    = f.text_field :place, class: 'form-control'
+  .form-group
+    = f.label :date, '対局日時'
+    = f.text_field :date, class: 'form-control'
+  .form-group
+    = f.label :description, '備考'
+    = f.text_area :description, class: 'form-control'
+  .form-group
     = f.label :kifu, '棋譜'
     = f.file_field :kifu, class: 'form-control-file'
   = f.submit '投稿する', class: 'btn btn-primary'

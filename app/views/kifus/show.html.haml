@@ -3,6 +3,24 @@
 - if current_user == @kifu.user
   = link_to '棋譜を削除する', @kifu, method: :delete, data: { confirm: "棋譜を削除します。よろしいですか？" }, class: 'btn btn-danger'
 
+.card.mt-4
+  .card-body
+    %p.card-text
+      先手：
+      = @kifu.sente
+    %p.card-text
+      後手：
+      = @kifu.gote
+    %p.card-text
+      対局場所：
+      = @kifu.place
+    %p.card-text
+      対局日時：
+      = @kifu.date
+    %p.card-text
+      備考：
+      = @kifu.description
+
 = form_with model: [@kifu, @comment], class: 'mt-5 mb-4' do |f|
   .form-group
     = f.label :comment, 'コメント'
@@ -20,4 +38,4 @@
           = link_to 'コメントを削除する', kifu_comment_path(@kifu.id, comment.id), method: :delete, data: { confirm: "コメントを削除しますか？" }, class: 'btn btn-sm btn-danger'
 
 :javascript
-  KifuForJS.load("#{rails_service_blob_path(@kifu.kifu.key, @kifu.kifu.filename)}", "board");
+  KifuForJS.load("#{rails_service_blob_path(@kifu.kifu, @kifu.kifu.filename)}", "board");
