@@ -1,6 +1,7 @@
 .name.d-flex.justify-content-around
+  - if @user.avatar.attached?
+    = image_tag @user.avatar
   %h1.pb-3= @user.name
-
   - unless current_user == @user
     %span.follow_form.pt-1
       - if current_user.following?(@user)
