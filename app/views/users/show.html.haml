@@ -23,8 +23,8 @@
     %tr
       %th 自己紹介
       %td= @user.description
-    %tr
-      %th
-      %td
-        - if current_user == @user
+    - if current_user == @user
+      %tr
+        %th
+        %td
           %p= link_to 'アカウントを削除する', @user, method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
