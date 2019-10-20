@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: kifulog_production
-  username: kifulog
-  password: <%= ENV['KIFULOG_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
