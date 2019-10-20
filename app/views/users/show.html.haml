@@ -1,26 +1,42 @@
-%h1 プロフィール
+.name.d-flex.justify-content-around
+  - if @user.avatar.attached?
+    = image_tag @user.avatar
+  %h1.pb-3= @user.name
+  - unless current_user == @user
+    %span.follow_form.pt-1
+      - if current_user.following?(@user)
+        = form_for(current_user.following_relationships.find_by(following_id: @user.id), html: { method: :delete }) do |f|
+          = f.submit "フォロー解除する", class: "btn btn-large btn-danger follow-btn"
+      - else
+        = form_for(current_user.following_relationships.build(following_id: @user.id)) do |f|
+          = f.hidden_field :following_id
+          = f.submit "フォローする", class: "btn btn-large btn-primary follow-btn"
+  - else
+    %span.edit_btn.pt-1
+      = link_to 'プロフィールを編集する', edit_user_path, class: 'btn btn-large btn-primary'
 
-%table.table.table-hover
+
+%table.table.table-borderless.table-hover.pb-5
   %tbody
-    %tr
-      %th ユーザー名
-      %td= @user.name
     %tr
       %th メールアドレス
       %td= @user.email
     %tr
       %th 自己紹介
       %td= @user.description
+    - if current_user == @user
+      %tr
+        %th
+        %td
+          %p= link_to 'アカウントを削除する', @user, method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
 
-- unless current_user == @user
-  .follow_form
-    - if current_user.following?(@user)
-      = form_for(current_user.following_relationships.find_by(following_id: @user.id), html: { method: :delete }) do |f|
-        = f.submit "フォロー解除する", class: "btn btn-large btn-danger follow-btn"
-    - else
-      = form_for(current_user.following_relationships.build(following_id: @user.id)) do |f|
-        = f.hidden_field :following_id
-        = f.submit "フォローする", class: "btn btn-large btn-primary follow-btn"
-  
-= link_to 'プロフィールを編集する', edit_user_path, class: 'btn btn-primary mr-3'
-= link_to 'アカウントを削除する', @user, method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
+- @kifus.each do |kifu|
+  .card.mt-4
+    .card-body
+      %p.card-text
+        先手：
+        = kifu.sente
+      %p.card-text
+        後手：
+        = kifu.gote
+      = link_to '棋譜を見る', kifu_path(kifu), class: 'btn btn-primary'

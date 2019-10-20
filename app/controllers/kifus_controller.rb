@@ -1,4 +1,6 @@
 class KifusController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
+
   def index
     @kifus = Kifu.all
   end
@@ -29,6 +31,6 @@ class KifusController < ApplicationController
   private
 
   def kifu_params
-    params.require(:kifu).permit(:kifu)
+    params.require(:kifu).permit(:sente, :gote, :place, :date, :description, :kifu)
   end
 end

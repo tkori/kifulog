@@ -10,4 +10,7 @@
   .form-group
     = f.label :description, '自己紹介'
     = f.text_area :description, class: 'form-control', rows: 3  
+  .form-group
+    = f.label :avatar, 'アバター画像'
+    = f.file_field :avatar, class: 'form-control-file'
   = f.submit '更新する', class: 'btn btn-primary'
