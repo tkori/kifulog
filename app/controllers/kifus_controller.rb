@@ -31,6 +31,6 @@ class KifusController < ApplicationController
   private
 
   def kifu_params
-    params.require(:kifu).permit(:kifu)
+    params.require(:kifu).permit(:sente, :gote, :place, :date, :description, :kifu)
   end
 end
