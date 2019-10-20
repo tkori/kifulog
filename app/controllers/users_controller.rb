@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @kifus = current_user.kifus.order(created_at: :desc)
   end
 
   def edit

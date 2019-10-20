@@ -29,3 +29,14 @@
         %th
         %td
           %p= link_to 'アカウントを削除する', @user, method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
+
+- @kifus.each do |kifu|
+  .card.mt-4
+    .card-body
+      %p.card-text
+        先手：
+        = kifu.sente
+      %p.card-text
+        後手：
+        = kifu.gote
+      = link_to '棋譜を見る', kifu_path(kifu), class: 'btn btn-primary'
