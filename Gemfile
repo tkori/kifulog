@@ -76,3 +76,4 @@ gem 'bootstrap'
 gem "jquery-rails"
 gem 'sassc', '2.2.1'
 gem 'rake'
+gem "aws-sdk-s3", require: false
