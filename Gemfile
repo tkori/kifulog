@@ -75,3 +75,4 @@ gem 'haml-rails'
 gem 'bootstrap'
 gem "jquery-rails"
 gem 'sassc', '2.2.1'
+gem 'rake'
