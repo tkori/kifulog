@@ -1,24 +1,26 @@
-# README
+# kifulog（現在制作中）
+http://3.115.70.140/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 制作理由
+将棋の上達において、自分が指した将棋を復習することは最も大事な過程です。
+しかし、インターネット上で将棋が指される機会も多く、対局相手との感想戦や振り返りが行われることは少ないのが現状です。
+そこで、棋譜（指した将棋の対局の記録）を媒介にしたSNSサービスを作ることで、ユーザー同士が繋がりを持ち、その中で投稿した棋譜について意見を述べ合ったり、熟練者からのアドバイスをもらうことによって、将棋の学習の助けになると考えました。
 
-Things you may want to cover:
+## 工夫したところ
+- EC2サーバーへのデプロイ
+- S3サーバーに画像ファイルやkifファイルをアップロード
 
-* Ruby version
+## 苦労したところ
+- Kifu for JS導入
+- AWS導入
 
-* System dependencies
+## これから実装したい機能
+- DM機能
+- スマホアプリサービス
 
-* Configuration
+## ER図
 
-* Database creation
+## 状態遷移図
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 現在までの制作時間
+12時間16分
