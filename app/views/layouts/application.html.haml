@@ -14,6 +14,8 @@
         %span.navbar-toggler-icon
       #navbarNavDropdown.collapse.navbar-collapse.justify-content-end
         %ul.navbar-nav
+          %li.nav-item.active
+            = link_to '棋譜を投稿する', new_kifu_path, class: 'nav-link'
           - if user_signed_in?
             %li.nav-item.active
               = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
