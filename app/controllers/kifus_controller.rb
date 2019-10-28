@@ -2,7 +2,11 @@ class KifusController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy]
 
   def index
-    @kifus = Kifu.all
+    if user_signed_in?
+      @kifus = Kifu.all
+    else
+      redirect_to login_path
+    end
   end
 
   def new
