@@ -35,5 +35,6 @@ URL: http://www.kifu-log.net/
 - スマホアプリサービス
 
 ## ER図
+![ER図](https://i.gyazo.com/236731ac7b3b1ec48df99744e6be76ab.png)
 
 ## 状態遷移図
