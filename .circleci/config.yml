@@ -75,6 +75,11 @@ jobs:
               --format progress \
               $TEST_FILES
 
+      - deploy:
+         name: Capistranoデプロイ
+         command:
+           bundle exec cap production deploy
+
       # collect reports
       - store_test_results:
           path: /tmp/test-results
