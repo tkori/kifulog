@@ -44,6 +44,8 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
@@ -55,6 +57,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-rails'
   gem 'rails-erd'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails'
 end
 
 group :test do
