@@ -19,6 +19,7 @@ URL: http://www.kifu-log.net/
 - ユーザー間のフォロー機能
 - ユーザー画像登録機能
 - CapistranoによるAmazon EC2インスタンスへの自動デプロイ
+- Circle CI導入
 - 独自ドメイン設定（Route53）
 - Amazon S3への画像ファイルおよび棋譜ファイルの保存（Active Storage）
 
